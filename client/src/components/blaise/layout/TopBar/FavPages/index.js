@@ -8,51 +8,33 @@ import store from 'store'
 import style from './style.module.scss'
 
 const mapStateToProps = ({ auth: { menu, user } }) => ({
-  menuTree: menu.menuTree,
+  menuData: menu.menuData,
   role_ids: user.role_ids,
 })
 
 const FavPages = ({
-  menuTree = [],
+  menuData = [],
   intl: { formatMessage },
   // eslint-disable-next-line camelcase
-  role_ids,
 }) => {
   const [searchText, setSearchText] = useState('')
   const [favs, setFavs] = useState(store.get('app.topbar.favs') || [])
   const [pagesList, setPagesList] = useState([])
 
   useEffect(() => {
-    const getPagesList = () => {
-      const menuDataProcessed = JSON.parse(JSON.stringify(menuTree))
-      const flattenItems = (items, key) =>
-        items.reduce((flattenedItems, item) => {
-          if (item.category) {
-            return flattenedItems
+    const menuList = menuData
+      .map(e => {
+        if (e.parent) {
+          const parentItem = menuData.find(v => v.title === e.parent)
+          if (parentItem && parentItem.icon) {
+            return { ...e, icon: parentItem.icon }
           }
-          if (
-            item.key === 'nestedItem1' ||
-            item.disabled ||
-            (item.role_ids && !item.role_ids.some(r => role_ids.includes(r)))
-          ) {
-            // skip unwanted items
-            return flattenedItems
-          }
-          if (Array.isArray(item[key])) {
-            const itemsProcessed = item[key].map(child => {
-              child.icon = item.icon
-              return child
-            })
-            return flattenedItems.concat(flattenItems(itemsProcessed, key))
-          }
-          flattenedItems.push(item)
-          return flattenedItems
-        }, [])
-      return flattenItems(menuDataProcessed, 'children')
-    }
-    setPagesList(getPagesList())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [menuTree])
+        }
+        return e
+      })
+      .filter(e => e.url)
+    setPagesList(menuList)
+  }, [menuData])
 
   const changeSearchText = e => {
     setSearchText(e.target.value)
@@ -73,7 +55,7 @@ const FavPages = ({
       return
     }
     const items = [...favs]
-    items.push(item)
+    items.push({ ...item, key: item.menu_id })
     store.set('app.topbar.favs', items)
     setFavs(items)
   }
@@ -86,7 +68,7 @@ const FavPages = ({
         return null
       }
       return (
-        <Link to={item.url} className={style.link} key={item.key}>
+        <Link to={item.url} className={style.link} key={item.menu_id}>
           <div
             className={`${style.setIcon} ${isActive ? style.setIconActive : ''}`}
             onClick={e => setFav(e, item)}
@@ -131,7 +113,7 @@ const FavPages = ({
     <div className={style.container}>
       {favs.map(item => {
         return (
-          <Tooltip key={item.key} placement="bottom" title={item.title}>
+          <Tooltip key={item.menu_id} placement="bottom" title={item.title}>
             <Link to={item.url} className={`${style.item} mr-3`}>
               <i className={`${style.icon} ${item.icon}`} />
             </Link>

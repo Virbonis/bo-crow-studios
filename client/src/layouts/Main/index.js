@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import classNames from 'classnames'
 import TopBar from 'components/blaise/layout/TopBar'
-// import Breadcrumbs from 'components/blaise/layout/Breadcrumbs'
 import Menu from 'components/blaise/layout/Menu'
 import Footer from 'components/blaise/layout/Footer'
 import LayoutTabs from 'components/blaise/layout/LayoutTabs'
@@ -61,7 +60,6 @@ const MainLayout = ({
               </div>
             )}
           </Layout.Header>
-          {/* <Breadcrumbs /> */}
           <Layout.Content style={{ height: '100%', width: '100%', position: 'relative' }}>
             <LayoutTabs />
           </Layout.Content>

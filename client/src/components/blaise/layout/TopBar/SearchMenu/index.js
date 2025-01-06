@@ -3,14 +3,13 @@ import { SearchOutlined } from '@ant-design/icons'
 import { debounce } from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
-import { generateMenuObject, useSelectorMenu } from '../../Menu/helper'
+import { useSelectorMenu } from '../../Menu/helper'
 
-const mapStateToProps = ({ auth: { menu, user } }) => ({
+const mapStateToProps = ({ auth: { menu } }) => ({
   menuData: menu.menuData,
-  role_ids: user.role_ids,
 })
 
-const SearchMenu = ({ menuData = [], role_ids }) => {
+const SearchMenu = ({ menuData = [] }) => {
   const [searchValue, setSearchValue] = React.useState('')
   const [popoverOpen, setPopoverOpen] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
@@ -32,11 +31,8 @@ const SearchMenu = ({ menuData = [], role_ids }) => {
   )
   const menuRef = React.useRef(null)
   const menuItems = React.useMemo(() => {
-    return menuData
-      .filter(menuItem => menuItem.url)
-      .map(menuItem => generateMenuObject(menuItem, role_ids))
-      .filter(x => x)
-  }, [menuData, role_ids])
+    return menuData.filter(menuItem => menuItem.url).filter(x => x)
+  }, [menuData])
   const filteredMenuItems = React.useMemo(() => {
     if (searchValue.length === 0) return []
     return menuItems.filter(menuItem =>

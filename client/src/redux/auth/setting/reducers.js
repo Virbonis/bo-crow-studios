@@ -13,7 +13,7 @@ const STORED_SETTINGS = storedSettings => {
 const initialState = {
   ...STORED_SETTINGS({
     authProvider: 'jwt', // firebase, jwt
-    logo: 'SBAdmin Backoffice',
+    logo: 'Crow Studios Backoffice',
     locale: 'en-US',
     isSidebarOpen: false,
     isSupportChatOpen: false,

@@ -3,30 +3,38 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import style from './MenuLeft/style.module.scss'
 
-export const generateMenuObject = (menuItem, role_ids) => {
-  if (menuItem.role_ids && !menuItem.role_ids.some(r => role_ids.includes(r))) {
-    return null
-  }
+export const generateMenuObject = menuItem => {
+  const transformedData = menuItem.reduce((acc, curr) => {
+    if (!curr.parent) {
+      acc.push({
+        title: curr.title,
+        key: curr.menu_id,
+        label: (
+          <a>
+            <span className={style.title}>{curr.title}</span>
+            {curr.icon && <span className={`${curr.icon} ${style.icon}`} />}
+          </a>
+        ),
+        children: [],
+      })
+    } else {
+      const parent = acc.find(e => e.title === curr.parent)
+      if (parent) {
+        parent.children.push({
+          ...curr,
+          key: curr.menu_id,
+          label: (
+            <a>
+              <span className={style.title}>{curr.title}</span>
+            </a>
+          ),
+        })
+      }
+    }
+    return acc
+  }, [])
 
-  const menuObject = {
-    key: menuItem.menu_id,
-    disabled: menuItem.disabled,
-    title: menuItem.title,
-    label: (
-      <a>
-        <span className={style.title}>{menuItem.title}</span>
-        {menuItem.count && <span className="badge badge-success ml-2">{menuItem.count}</span>}
-        {menuItem.icon && <span className={`${menuItem.icon} ${style.icon}`} />}
-      </a>
-    ),
-  }
-  if (menuItem.category) {
-    menuObject.type = 'group'
-  }
-  if (menuItem.children) {
-    menuObject.children = menuItem.children.map(sub => generateMenuObject(sub, role_ids))
-  }
-  return menuObject
+  return transformedData
 }
 
 export const useSelectorMenu = () => {

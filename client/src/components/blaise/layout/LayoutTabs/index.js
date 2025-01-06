@@ -4,7 +4,7 @@ import Homepage from 'pages/auth/homepage'
 import { connect } from 'react-redux'
 import { useHistory, withRouter } from 'react-router-dom'
 import actions from 'redux/auth/setting/actions'
-import ACL from 'components/blaise/system/ACL'
+// import ACL from 'components/blaise/system/ACL'
 import { routes } from 'router'
 import LayoutHelmet from '../LayoutHelmet'
 
@@ -66,10 +66,10 @@ const LayoutTabs = ({
             label: menuItem.title,
             children: (
               <Suspense fallback={null}>
-                <ACL roles={menuItem?.role_ids} bypass={routeItem?.bypass}>
-                  <LayoutHelmet />
-                  {!routeItem ? <route404.Component /> : <routeItem.Component />}
-                </ACL>
+                {/* <ACL roles={menuItem?.role_ids} bypass={routeItem?.bypass}> */}
+                <LayoutHelmet />
+                {!routeItem ? <route404.Component /> : <routeItem.Component />}
+                {/* </ACL> */}
               </Suspense>
             ),
           })
@@ -81,10 +81,10 @@ const LayoutTabs = ({
             closeIcon: pathname !== '/homepage',
             children: (
               <Suspense fallback={null}>
-                <ACL bypass={routeItem?.bypass}>
-                  <LayoutHelmet />
-                  <routeItem.Component />
-                </ACL>
+                {/* <ACL bypass={routeItem?.bypass}> */}
+                <LayoutHelmet />
+                <routeItem.Component />
+                {/* </ACL> */}
               </Suspense>
             ),
           })

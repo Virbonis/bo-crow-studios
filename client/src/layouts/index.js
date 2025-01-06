@@ -64,7 +64,7 @@ const Layout = ({ user, children, location: { pathname } }) => {
 
   return (
     <Fragment>
-      <Helmet titleTemplate="%s | SBAdmin Backoffice" title="" />
+      <Helmet titleTemplate="%s | Crow Studios Backoffice" title="" />
       {BootstrappedLayout()}
     </Fragment>
   )

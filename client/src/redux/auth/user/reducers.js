@@ -2,13 +2,14 @@ import actions from './actions'
 
 const initialState = {
   id: '',
-  name: '',
-  // role: '',
-  email: '',
+  name: 'Dicky',
+  roles: ['Admin'],
+  email: 'lol@yahoo.com',
   avatar: '',
-  authorized: process.env.REACT_APP_AUTHENTICATED || false, // false is default value
+  authorized: false, // false is default value
   loading: false,
-  user_auth_ids: [],
+  last_login: '2024-12-12',
+  user_auth_ids: ['1', '2'],
 }
 
 export default function userReducer(state = initialState, action) {

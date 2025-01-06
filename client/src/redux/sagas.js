@@ -1,6 +1,5 @@
 import { all } from 'redux-saga/effects'
 import authuser from './auth/user/sagas'
-import authmenu from './auth/menu/sagas'
 import authsettings from './auth/setting/sagas'
 // admin
 import audit from './admin/audit/sagas'
@@ -162,7 +161,6 @@ import oddsSpread from './odds-spread/sagas'
 export default function* rootSaga() {
   yield all([
     authuser(),
-    authmenu(),
     authsettings(),
     // admin
     audit(),

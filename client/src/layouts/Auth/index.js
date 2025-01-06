@@ -47,13 +47,15 @@ const AuthLayout = ({
             <Link to="/homepage">
               <div className={style.logoContainer}>
                 <div className={style.logo}>
-                  <img
+                  {/* <img
                     src="resources/images/logo-blaise.png"
                     className="mr-2"
                     alt="Tsubasa Admin"
                     style={{ maxWidth: '30px' }}
-                  />
-                  <div className={style.name}>{logo}</div>
+                  /> */}
+                  <div className={style.name} style={{ maxWidth: '100%' }}>
+                    {logo}
+                  </div>
                 </div>
               </div>
             </Link>

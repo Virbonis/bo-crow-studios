@@ -7,7 +7,7 @@ const Clock = () => {
   const UpdateClockTime = () => {
     setClockTime(
       dayjs()
-        .utcOffset(8)
+        .utcOffset(7)
         .format('ddd, DD MMM YYYY HH:mm:ss'),
     )
   }

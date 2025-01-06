@@ -6,10 +6,10 @@ import classNames from 'classnames'
 import store from 'store'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import style from './style.module.scss'
-import { generateMenuObject, useSelectorMenu } from '../helper'
+import { useSelectorMenu, generateMenuObject } from '../helper'
 
 const mapStateToProps = ({ auth: { menu, settings, user } }) => ({
-  menuTree: menu.menuTree,
+  menuData: menu.menuData,
   isMenuCollapsed: settings.isMenuCollapsed,
   isMobileView: settings.isMobileView,
   isMenuUnfixed: settings.isMenuUnfixed,
@@ -23,7 +23,7 @@ const mapStateToProps = ({ auth: { menu, settings, user } }) => ({
 
 const MenuLeft = ({
   dispatch,
-  menuTree = [],
+  menuData = [],
   // location: { pathname },
   isMenuCollapsed,
   isMobileView,
@@ -32,8 +32,6 @@ const MenuLeft = ({
   leftMenuWidth,
   menuColor,
   logo,
-  // eslint-disable-next-line camelcase
-  role_ids,
 }) => {
   const [openedKeys, setOpenedKeys] = useState(store.get('app.menu.openedKeys') || [])
   const onCollapse = (value, type) => {
@@ -70,8 +68,8 @@ const MenuLeft = ({
       }
 
   const menuItems = React.useMemo(() => {
-    return menuTree.map(menuItem => generateMenuObject(menuItem, role_ids))
-  }, [menuTree, role_ids])
+    return generateMenuObject(menuData)
+  }, [menuData])
 
   const { selectedKeys, onSelectMenu } = useSelectorMenu()
   return (
@@ -92,13 +90,15 @@ const MenuLeft = ({
         <Link to="/homepage">
           <div className={style.logoContainer}>
             <div className={style.logo}>
-              <img
+              {/* <img
                 src="resources/images/logo-blaise.png"
                 className="mr-2"
                 alt="Tsubasa Admin"
                 style={{ maxWidth: '30px' }}
-              />
-              <div className={style.name}>{logo}</div>
+              /> */}
+              <div className={style.name} style={{ maxWidth: '100%' }}>
+                {logo}
+              </div>
             </div>
           </div>
         </Link>
