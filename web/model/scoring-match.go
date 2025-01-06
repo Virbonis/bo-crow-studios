@@ -1,0 +1,146 @@
+package model
+
+import "github.com/guregu/null"
+
+type ScoringMatch struct {
+	MatchID            int      `json:"match_id" db:"Match_ID"`
+	MatchDate          string   `json:"match_date" db:"Match_Date"`
+	LeagueName         string   `json:"league_name" db:"League_Name"`
+	HomeName           string   `json:"home_name" db:"Home_Name"`
+	AwayName           string   `json:"away_name" db:"Away_Name"`
+	HomePosisi         int      `json:"home_posisi" db:"Home_Posisi"`
+	AwayPosisi         int      `json:"away_posisi" db:"Away_Posisi"`
+	HTHome             int      `json:"ht_home" db:"HT_Home"`
+	HTAway             int      `json:"ht_away" db:"HT_Away"`
+	FSHome             int      `json:"fs_home" db:"FS_Home"`
+	FSAway             int      `json:"fs_away" db:"FS_Away"`
+	FGTeam             int      `json:"fg_team" db:"FG_Team"`
+	LGTeam             int      `json:"lg_team" db:"LG_Team"`
+	STVoidChoice       int      `json:"st_void_choice" db:"ST_VoidChoice"`
+	HTScoreStatus      string   `json:"ht_score_status" db:"HT_Score_Status"`
+	FTScoreStatus      string   `json:"ft_score_status" db:"FT_Score_Status"`
+	FGLGScoreStatus    string   `json:"fglg_score_status" db:"FGLG_Score_Status"`
+	HTProcessStatus    string   `json:"ht_process_status" db:"HT_Process_Status"`
+	FTProcessStatus    string   `json:"ft_process_status" db:"FT_Process_Status"`
+	FGLGProcessStatus  string   `json:"fglg_process_status" db:"FGLG_Process_Status"`
+	SpecialScoreStatus string   `json:"special_score_status" db:"Special_Score_Status"`
+	MatchHasFGLGStatus string   `json:"match_has_fglg_status" db:"Is_HasFGLG"`
+	IsLive             string   `json:"is_live" db:"Is_Live"`
+	IsSuspendParlay    string   `json:"is_suspend_parlay" db:"Is_Suspend_Parlay"`
+	Trader             string   `json:"trader" db:"Trader"`
+	Home1              null.Int `json:"home_1" db:"Home1"`
+	Away1              null.Int `json:"away_1" db:"Away1"`
+	Home2              null.Int `json:"home_2" db:"Home2"`
+	Away2              null.Int `json:"away_2" db:"Away2"`
+	Home3              null.Int `json:"home_3" db:"Home3"`
+	Away3              null.Int `json:"away_3" db:"Away3"`
+	Home4              null.Int `json:"home_4" db:"Home4"`
+	Away4              null.Int `json:"away_4" db:"Away4"`
+	Home5              null.Int `json:"home_5" db:"Home5"`
+	Away5              null.Int `json:"away_5" db:"Away5"`
+	Home6              null.Int `json:"home_6" db:"Home6"`
+	Away6              null.Int `json:"away_6" db:"Away6"`
+	Home7              null.Int `json:"home_7" db:"Home7"`
+	Away7              null.Int `json:"away_7" db:"Away7"`
+	Home8              null.Int `json:"home_8" db:"Home8"`
+	Away8              null.Int `json:"away_8" db:"Away8"`
+	Home9              null.Int `json:"home_9" db:"Home9"`
+	Away9              null.Int `json:"away_9" db:"Away9"`
+	Home10             null.Int `json:"home_10" db:"Home10"`
+	Away10             null.Int `json:"away_10" db:"Away10"`
+	Home11             null.Int `json:"home_11" db:"Home11"`
+	Away11             null.Int `json:"away_11" db:"Away11"`
+	Home12             null.Int `json:"home_12" db:"Home12"`
+	Away12             null.Int `json:"away_12" db:"Away12"`
+	Home13             null.Int `json:"home_13" db:"Home13"`
+	Away13             null.Int `json:"away_13" db:"Away13"`
+	Home14             null.Int `json:"home_14" db:"Home14"`
+	Away14             null.Int `json:"away_14" db:"Away14"`
+	Home15             null.Int `json:"home_15" db:"Home15"`
+	Away15             null.Int `json:"away_15" db:"Away15"`
+	SportID            int      `json:"sport_id" db:"SportID"`
+}
+
+type ScoringDetailMatch struct {
+	NoSport    string      `json:"sport_id" db:"No_Sport"`
+	NoPartai   string      `json:"match_id" db:"No_Partai"`
+	CurrentSet null.Int    `json:"current_set" db:"CurrentSet"`
+	Home1      null.Int    `json:"home_1" db:"Home1"`
+	Away1      null.Int    `json:"away_1" db:"Away1"`
+	Home2      null.Int    `json:"home_2" db:"Home2"`
+	Away2      null.Int    `json:"away_2" db:"Away2"`
+	Home3      null.Int    `json:"home_3" db:"Home3"`
+	Away3      null.Int    `json:"away_3" db:"Away3"`
+	Home4      null.Int    `json:"home_4" db:"Home4"`
+	Away4      null.Int    `json:"away_4" db:"Away4"`
+	Home5      null.Int    `json:"home_5" db:"Home5"`
+	Away5      null.Int    `json:"away_5" db:"Away5"`
+	Home6      null.Int    `json:"home_6" db:"Home6"`
+	Away6      null.Int    `json:"away_6" db:"Away6"`
+	Home7      null.Int    `json:"home_7" db:"Home7"`
+	Away7      null.Int    `json:"away_7" db:"Away7"`
+	Home8      null.Int    `json:"home_8" db:"Home8"`
+	Away8      null.Int    `json:"away_8" db:"Away8"`
+	Home9      null.Int    `json:"home_9" db:"Home9"`
+	Away9      null.Int    `json:"away_9" db:"Away9"`
+	Home10     null.Int    `json:"home_10" db:"Home10"`
+	Away10     null.Int    `json:"away_10" db:"Away10"`
+	Home11     null.Int    `json:"home_11" db:"Home11"`
+	Away11     null.Int    `json:"away_11" db:"Away11"`
+	Home12     null.Int    `json:"home_12" db:"Home12"`
+	Away12     null.Int    `json:"away_12" db:"Away12"`
+	Home13     null.Int    `json:"home_13" db:"Home13"`
+	Away13     null.Int    `json:"away_13" db:"Away13"`
+	Home14     null.Int    `json:"home_14" db:"Home14"`
+	Away14     null.Int    `json:"away_14" db:"Away14"`
+	Home15     null.Int    `json:"home_15" db:"Home15"`
+	Away15     null.Int    `json:"away_15" db:"Away15"`
+	STGeneral  null.String `json:"st_general" db:"ST_General"`
+}
+
+type ScoringMatchNCNG struct {
+	GameType   int    `json:"game_type" db:"GameType"`
+	Selection  string `json:"selection" db:"Selection"`
+	HomePosisi int    `json:"home_posisi" db:"Home_Posisi"`
+	AwayPosisi int    `json:"away_posisi" db:"Away_Posisi"`
+	FSHome     int    `json:"fs_home" db:"FS_Home"`
+	FSAway     int    `json:"fs_away" db:"FS_Away"`
+	IsScored   string `json:"is_scored" db:"isScored"`
+	STVoid     int    `json:"st_void" db:"ST_Void"`
+	VoidDesc   string `json:"void_desc" db:"Void_Desc"`
+}
+
+type ScoringMatchSpecial struct {
+	GameType int    `json:"game_type" db:"GameType"`
+	HTHome   int    `json:"ht_home" db:"HT_Home"`
+	HTAway   int    `json:"ht_away" db:"HT_Away"`
+	FSHome   int    `json:"fs_home" db:"FS_Home"`
+	FSAway   int    `json:"fs_away" db:"FS_Away"`
+	IsScored string `json:"is_scored" db:"isScored"`
+}
+
+type ScoringMatchSpecialBasketScore struct {
+	HomeQ1         null.Int `json:"home_q1" db:"Home_Q1"`
+	AwayQ1         null.Int `json:"away_q1" db:"Away_Q1"`
+	IsEnableQ1     string   `json:"is_enable_q1" db:"isEnable_Q1"`
+	HomeQ2         null.Int `json:"home_q2" db:"Home_Q2"`
+	AwayQ2         null.Int `json:"away_q2" db:"Away_Q2"`
+	IsEnableQ2     string   `json:"is_enable_q2" db:"isEnable_Q2"`
+	HomeQ3         null.Int `json:"home_q3" db:"Home_Q3"`
+	AwayQ3         null.Int `json:"away_q3" db:"Away_Q3"`
+	IsEnableQ3     string   `json:"is_enable_q3" db:"isEnable_Q3"`
+	HomeQ4         null.Int `json:"home_q4" db:"Home_Q4"`
+	AwayQ4         null.Int `json:"away_q4" db:"Away_Q4"`
+	IsEnableQ4     string   `json:"is_enable_q4" db:"isEnable_Q4"`
+	HomeOT         null.Int `json:"home_ot" db:"Home_OT"`
+	AwayOT         null.Int `json:"away_ot" db:"Away_OT"`
+	IsEnableOT     string   `json:"is_enable_ot" db:"isEnable_OT"`
+	HomeHT         null.Int `json:"home_ht" db:"Home_HT"`
+	AwayHT         null.Int `json:"away_ht" db:"Away_HT"`
+	IsEnableHT     string   `json:"is_enable_ht" db:"isEnable_HT"`
+	HomeFT         null.Int `json:"home_ft" db:"Home_FT"`
+	AwayFT         null.Int `json:"away_ft" db:"Away_FT"`
+	IsEnableFT     string   `json:"is_enable_ft" db:"isEnable_FT"`
+	IsHalf         string   `json:"is_half" db:"IsHalf"`
+	IsEnableIsHalf string   `json:"is_enable_is_half" db:"isEnable_IsHalf"`
+}

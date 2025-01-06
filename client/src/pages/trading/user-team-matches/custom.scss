@@ -1,0 +1,34 @@
+[data-kit-theme='default'],
+[data-kit-theme='dark'] {
+  .ant-table table {
+    border-collapse: collapse;
+  }
+}
+
+.icon_live {
+  display: inline-block;
+  background: url('/resources/images/icon_tv.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_delayed {
+  display: inline-block;
+  background: url('/resources/images/icon_tv_delayed.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_has_live {
+  display: inline-block;
+  background: url('/resources/images/icon_ball.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_trader {
+  display: inline-block;
+  background-color: #90ee90;
+  width: 16px;
+  height: 16px;
+}
+.bg_trader {
+  background-color: #90ee90;
+}

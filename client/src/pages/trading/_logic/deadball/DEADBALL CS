@@ -1,0 +1,142 @@
+DEADBALL CS
+ROW
+RowClassName = MatchOpenStatus,MatchPauseStatus
+Trader1Class = getTraderClass(TraderGroup, TraderGroupPause, Price_Alert_Trader, Sub_Match_Pause_Status, "", LastChange),
+Trader2Class = getTraderClass(TraderGroup, TraderGroupPause, Price_Alert_Trader, Sub_Match_Pause_Status, "span", LastChange),
+(Y0=KOSONG)
+.Y1, .Y2, .Y3 {background-color: #ffff99;} kuning terang
+.N0 {background-color: #afaeaf;} abu2
+.N1 {background-color: #afaeaf;} abu2
+
+
+COL
+1. NO
+2. TIME 
+  2.1. MatchDate
+    Match_Date format "dd-MMM"
+  2.2. MatchTime
+    Match_Date format "HH:mm"
+  2.3. _ProfileID
+    if Is_Profile_Changed == "0", Profile_ID dengan background-color #ffff99; (kuning muda)
+    else Profile_ID dengan background-color:#3ac4f5; color:#FFF; (biru langit)
+
+3. HOME AWAY
+  3.1 HomeName
+  3.2 AwayName
+  3.3    % margin : (General.FormatOddsMargin(totalOdds), if value < 1 color red)
+4. (separator) rowSpan = 2
+	4.1. if Lock_Shift == "1", render gembok
+	4.2. if Auto_Odds == "0", render f coret
+	4.3. if Auto_Pause == "1", render pause
+	source stip_indicator.gif
+5. 1:0
+   class = RowClassName, Trader1Class
+		Odds1, color red if minus, class =Trader2Class
+		if jml1>0 Jml1/T1, class = betList:'invisible' , if T1 <0, T1 color red **CAN TOOGLE DIALOG BETLIST
+		Odds12, color red if minus, class = Trader2Class
+		if jml12>0 Jml12/T12, class = betList:'invisible', if T12 <0, T12 color red **CAN TOOGLE DIALOG BETLIST
+6. 2:0
+	class = RowClassName, Trader1Class
+		Odds2, color red if minus, class =Trader2Class
+		if jml2>0 Jml2/T2, class = betList:'invisible' , if T2 <0, T2 color red **CAN TOOGLE DIALOG BETLIST
+		Odds13, color red if minus, class = Trader2Class
+		if jml13>0 Jml13/T13, class = betList:'invisible', if T13 <0, T13 color red **CAN TOOGLE DIALOG BETLIST
+7. 2:1
+	class = RowClassName, Trader1Class
+		Odds3, color red if minus, class = Trader2Class
+		if jml3>0 Jml3/T3, class = betList:'invisible' , if T3 <0, T3 color red **CAN TOOGLE DIALOG BETLIST
+		Odds14, color red if minus, class = Trader2Class
+		if jml14>0 Jml14/T14, class = betList:'invisible', if T14 <0, T14 color red **CAN TOOGLE DIALOG BETLIST
+8. 3:0
+	class = RowClassName, Trader1Class
+		Odds4, color red if minus, class = Trader2Class
+		if jml4>0 Jml4/T4, class = betList:'invisible' , if T4 <0, T4 color red **CAN TOOGLE DIALOG BETLIST
+		Odds15, color red if minus, class = Trader2Class
+		if jml15>0 Jml15/T15, class = betList:'invisible', if T15 <0, T15 color red	**CAN TOOGLE DIALOG BETLIST
+9. 3:1
+	class = RowClassName, Trader1Class
+		Odds5, color red if minus, class = Trader2Class
+		if jml5>0 Jml5/T5, class = betList:'invisible' , if T5 <0, T5 color red **CAN TOOGLE DIALOG BETLIST
+		Odds16, color red if minus, class = Trader2Class
+		if jml16>0 Jml16/T16, class = betList:'invisible', if T16 <0, T16 color red **CAN TOOGLE DIALOG BETLIST
+10. 3:2
+	class = RowClassName, Trader1Class
+		Odds6, color red if minus, class = Trader2Class
+		if jml6>0 Jml6/T6, class = betList:'invisible' , if T6 <0, T6 color red **CAN TOOGLE DIALOG BETLIST
+		Odds17, color red if minus, class = Trader2Class
+		if jml17>0 Jml17/T17, class = betList:'invisible', if T17 <0, T17 color red **CAN TOOGLE DIALOG BETLIST
+11. 4:0
+	class = RowClassName, Trader1Class
+		Odds7, color red if minus, class = Trader2Class
+		if jml7>0 Jml7/T7, class = betList:'invisible' , if T7 <0, T7 color red **CAN TOOGLE DIALOG BETLIST
+		Odds18, color red if minus, class = Trader2Class
+		if jml18>0 Jml18/T18, class = betList:'invisible', if T18 <0, T18 color red **CAN TOOGLE DIALOG BETLIST
+11. 4:1
+	class = RowClassName, Trader1Class
+		Odds8, color red if minus, class = Trader2Class
+		if jml8>0 Jml8/T8, class = betList:'invisible' , if T8 <0, T8 color red **CAN TOOGLE DIALOG BETLIST
+		Odds18, color red if minus, class = Trader2Class
+		if jml18>0 Jml19/T19, class = betList:'invisible', if T19 <0, T19 color red **CAN TOOGLE DIALOG BETLIST
+11. 4:2
+	class = RowClassName, Trader1Class
+		Odds9, color red if minus, class = Trader2Class
+		if jml9>0 Jml9/T9, class = betList:'invisible' , if T9 <0, T9 color red **CAN TOOGLE DIALOG BETLIST
+		Odds20, color red if minus, class = Trader2Class
+		if jml20>0 Jml20/T20, class = betList:'invisible', if T20 <0, T20 color red **CAN TOOGLE DIALOG BETLIST
+12. 4:3
+	class = RowClassName, Trader1Class
+		Odds10, color red if minus, class = Trader2Class
+		if jml10>0 Jml10/T10, class = betList:'invisible' , if T10 <0, T10 color red **CAN TOOGLE DIALOG BETLIST
+		Odds21, color red if minus, class = Trader2Class
+		if jml21>0 Jml21/T21, class = betList:'invisible', if T21 <0, T21 color red **CAN TOOGLE DIALOG BETLIST
+13. 0:0
+	class = RowClassName, Trader1Class
+		Odds23, color red if minus, class = Trader2Class
+		if jml23>0 Jml23/T23, class = betList:'invisible', if T23 <0, T23 color red **CAN TOOGLE DIALOG BETLIST
+14. 1:1
+	class = RowClassName, Trader1Class
+		Odds24, color red if minus, class = Trader2Class
+		if jml24>0 Jml24/T24, class = betList:'invisible', if T24 <0, T24 color red **CAN TOOGLE DIALOG BETLIST
+15. 2:2
+	class = RowClassName, Trader1Class
+		Odds25, color red if minus, class = Trader2Class
+		if jml25>0 Jml25/T25, class = betList:'invisible', if T25 <0, T25 color red **CAN TOOGLE DIALOG BETLIST
+16. 3:3
+	class = RowClassName, Trader1Class
+		Odds26, color red if minus, class = Trader2Class
+		if jml26>0 Jml26/T26, class = betList:'invisible', if T26 <0, T26 color red **CAN TOOGLE DIALOG BETLIST
+17. 4:4
+	class = RowClassName, Trader1Class
+		Odds27, color red if minus, class = Trader2Class
+		if jml27>0 Jml27/T27, class = betList:'invisible', if T27 <0, T27 color red **CAN TOOGLE DIALOG BETLIST
+18. AOS
+	class = RowClassName, Trader1Class
+		Odds11, color red if minus, class = Trader2Class
+		if jml11>0 Jml11/T11, class = betList:'invisible', if T11 <0, T11 color red **CAN TOOGLE DIALOG BETLIST
+19. Action
+	Sub_Match_Open_Status==='Y'?'Cls':'Opn', color (red/green) **TOOGLE OPEN/CLOSE SUBMATCH SETTING |
+	Sub_Match_Pause_Status==='0'?'Pse':'Rsm', color (red/green) **TOOGLE PAUSE/RESUME SUBMATCH SETTING 
+	<br/>
+	Setting **TOOGLE OPEN SUBMATCH SETTING
+notes:
+*=punya background
+**=ada action
+
+getTraderClass
+.Trader1 {background-color: #f285ff; /* NB  - BOS Pause & chgOdds [light purple]*/}
+.Trader2 {background-color: #ffbe9f; /* NB - SPV RED */}
+.Trader3 {background-color: #90EE90; /* NB  TRADER- 1X2*/}
+.Trader4 {background-color: #90EE90; /* NB GREEN */}
+.Trader6 {background-color: #f285ff; /* NB - BOSS [light purple]*/}
+.Trader7 {background-color: #99ffff; /* NB - SPV LIME*/}
+.Trader8 {background-color: #ffff99; /* NB - TRADER pause [light yellow]*/}
+.Boss {background-color: #f285ff; /* NB  - BOS Pause & chgOdds [light purple]*/}
+.SpvOdds {background-color: #ffbe9f; /* NB - SPV RED */ }
+.SpvPause {background-color: #99ffff; /* NB - SPV LIME*/}
+.TraderOdds {background-color: #90EE90; /* NB GREEN */}
+.TraderPause {background-color: #ffff99; /* NB - TRADER pause [light yellow]*/}	 bbdfdf, cdddff
+.LeechingOdds {background-color: #CECECE; /* NB GREEN */}
+oddsClass
+.oddsPause {background-color: #3ac4f5} biru ijo
+betlistClass
+.betlist {background-color: #9be6f8} biru putih langit

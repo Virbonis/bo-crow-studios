@@ -1,0 +1,76 @@
+#
+# Script to automate source code distribution to GISD repository
+#
+name: Distribute source code to GISD repository
+on:
+  push:
+    branches:
+      - dist-release
+  release:
+    types: [created]
+
+jobs:
+  setup-checkout-clone-publish:
+    name: Setup, Checkout, Clone, and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository name & set to ENV variable
+        run: |
+          echo "REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create Output Directory
+        run: |
+          ls -la
+          rsync -Rr ./ ./output/
+
+          rm -rf ./output/.git
+          rm -rf ./output/.github
+          rm -rf ./output/.gitignore
+          rm -rf ./output/.README.md
+          rm -rf ./output/.vscode
+          rm -rf ./output/.air.toml
+          rm -rf ./output/client/README.md
+          rm -rf ./output/config/Caddyfile
+          rm -rf ./output/dist
+          rm -rf ./output/kustomization.yaml
+
+      - name: Get Commit Message
+        run: |
+          echo "COMMIT_MSG=\"$(git log -1 --pretty=%b)\"" >> $GITHUB_ENV
+
+      - name: Checkout GISD tsubasa-dist-config CI Repo
+        uses: actions/checkout@v4
+        with:
+          github-server-url: "https://github.gisd88.com/"
+          repository: "Balanga/tsubasa-dist-config"
+          ref: "main"
+          token: ${{ secrets.GISD_GITHUB_PAT }}
+          path: "tsubasa-dist-config"
+
+      - name: Copy tsubasa-dist-config ci file
+        run: |
+          cp -a ./tsubasa-dist-config/$REPO_NAME/. ./output/
+
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2
+        with:
+          repository: "AxionHQ/github-action-clone"
+          token: ${{ secrets.GITOPS_PAT }}
+          path: ".github/actions/github-action-clone"
+
+      - name: Run github-action-clone
+        uses: ./.github/actions/github-action-clone
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GISD_GITHUB_PAT }}
+        with:
+          github-server: "github.gisd88.com"
+          destination-github-username: "Balanga"
+          destination-repository-name: "${{ env.REPO_NAME }}"
+          source-directory: "output"
+          user-email: "balangaservicea@gisd88.com"
+          user-name: "GISD-Balanga-SA"
+          target-branch: "release"
+          commit-message: "Auto Sync: ${{ github.event.head_commit.message }}"

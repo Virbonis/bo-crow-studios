@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: tsubasa-admin-ingress
+  namespace: development
+spec:
+  rules:
+    - host: tsubasa-admin-dev.axion.ltd
+      http:
+        paths:
+          - backend:
+              serviceName: tsubasa-admin
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - tsubasa-admin-dev.axion.ltd

@@ -1,0 +1,69 @@
+name: Build and Deploy to STG environment
+
+on:
+  push:
+    branches:
+      - stable
+  release:
+    types: [created]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  PROJECT_NAME: seamless-sportsbook
+  GITHUB_SHA: ${{ github.sha }}
+  COMMIT_MSG: ${{ github.event.head_commit.message }}
+  IMAGE: tsubasa-admin
+  REGISTRY_HOSTNAME: acrrngstgea.azurecr.io
+  ACR_SERVICE_ACCOUNT: ${{ secrets.ACR_SERVICE_ACCOUNT }}
+  ACR_SECRET_VALUE: ${{ secrets.ACR_SECRET_VALUE }}
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Configure docker
+      - run: |
+          # Set up docker to authenticate
+          echo "$ACR_SECRET_VALUE" | docker login $REGISTRY_HOSTNAME -u "$ACR_SERVICE_ACCOUNT" --password-stdin
+
+      # Build the Docker image
+      - name: Build
+        run: |
+          docker build -t "$REGISTRY_HOSTNAME"/"$PROJECT_NAME"/"$IMAGE":"$GITHUB_SHA" \
+            --build-arg GITHUB_SHA="$GITHUB_SHA" \
+            --build-arg GITHUB_REF="$GITHUB_REF" .
+
+      # Push the Docker image to Azure Container Registry
+      - name: Publish
+        run: |
+          docker push $REGISTRY_HOSTNAME/$PROJECT_NAME/$IMAGE:$GITHUB_SHA
+
+      # Set up kustomize
+      - name: Set up Kustomize
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/bin
+          curl -o $GITHUB_WORKSPACE/bin/kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+          chmod u+x $GITHUB_WORKSPACE/bin/kustomize
+          echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
+
+      # Update gitops repo
+      - name: Update gitops repo
+        uses: actions/checkout@v2
+        with:
+          repository: "Balanga/tsubasa-deployment-files"
+          ref: "main"
+          token: ${{ secrets.GITOPS_PAT }}
+          path: "app-deployment"
+
+      - run: |
+          cd app-deployment/tsubasa-admin
+          kustomize edit set image $REGISTRY_HOSTNAME/$PROJECT_NAME/$IMAGE:${GITHUB_SHA}
+          git config user.name GISD-Balanga-SA
+          git config user.email balangaservicea@gisd88.com
+          git add .
+          git diff-index --quiet HEAD || git commit --message "$COMMIT_MSG"
+          git push

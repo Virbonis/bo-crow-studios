@@ -1,0 +1,17 @@
+const actions = {
+  SET_STATE: 'sportsbook-setting/SET_STATE',
+  CLEAN_UP: 'sportsbook-setting/CLEAN_UP',
+
+  LOAD: 'sportsbook-setting/LOAD',
+  UPDATE_SPORTSBOOK_SETTING: 'sportsbook-setting/UPDATE_SPORTSBOOK_SETTING',
+  UPDATE_DEFAULT_MATCH_OUTRIGHT: 'sportsbook-setting/UPDATE_DEFAULT_MATCH_OUTRIGHT',
+  UPDATE_MAINTENANCE_STATUS: 'sportsbook-setting/UPDATE_MAINTENANCE_STATUS',
+  UPDATE_SEAMLESS_MAINTENANCE_STATUS: 'sportsbook-setting/UPDATE_SEAMLESS_MAINTENANCE_STATUS',
+  UPDATE_CLOSE_FUND_TRANSFER_STATUS: 'sportsbook-setting/UPDATE_CLOSE_FUND_TRANSFER_STATUS',
+  UPDATE_BET_BAZAR_STATUS: 'sportsbook-setting/UPDATE_BET_BAZAR_STATUS',
+  UPDATE_IM_STATUS: 'sportsbook-setting/UPDATE_IM_STATUS',
+  UPDATE_SIS_STATUS: 'sportsbook-setting/UPDATE_SIS_STATUS',
+  UPDATE_BTI_AUTO_ADD_MATCH: 'sportsbook-setting/UPDATE_BTI_AUTO_ADD_MATCH',
+}
+
+export default actions

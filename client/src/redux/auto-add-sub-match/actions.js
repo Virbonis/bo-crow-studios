@@ -1,0 +1,17 @@
+const actions = {
+  SET_STATE: 'autoAddSubMatch/SET_STATE',
+  CLEAN_UP: 'autoAddSubMatch/CLEAN_UP',
+
+  LOAD_DATA: 'autoAddSubMatch/LOAD_DATA',
+  GET_MAX_LINE: 'autoAddSubMatch/GET_MAX_LINE',
+  LOAD_LIST_IBC: 'autoAddSubMatch/LOAD_LIST_IBC',
+  LOAD_LIST_GLIVE: 'autoAddSubMatch/LOAD_LIST_GLIVE',
+  UPDATE_AUTO_ADD_SUB_MATCH: 'autoAddSubMatch/UPDATE_AUTO_ADD_SUB_MATCH',
+  UPDATE_AUTO_ADD_SUB_MATCH_SYNC_MARKET: 'autoAddSubMatch/UPDATE_AUTO_ADD_SUB_MATCH_SYNC_MARKET',
+  UPDATE_AUTO_ADD_SUB_MATCH_SYNC_LEAGUE: 'autoAddSubMatch/UPDATE_AUTO_ADD_SUB_MATCH_SYNC_LEAGUE',
+
+  // ui
+  EDIT: 'autoAddSubMatch/EDIT',
+}
+
+export default actions

@@ -1,0 +1,98 @@
+@import 'components/mixins.scss';
+
+.text {
+  &-tosca {
+    color: #63ccc5 !important;
+  }
+  &-brown {
+    color: brown !important;
+  }
+  &-dark-brown {
+    color: #654321 !important;
+  }
+  &-green {
+    color: green !important;
+  }
+  &-light-violet {
+    color: #dfa0df !important;
+  }
+  &-violet {
+    color: violet !important;
+  }
+  &-purple {
+    color: #bd1bbd !important;
+  }
+  &-dark-purple {
+    color: #5e0b5e !important;
+  }
+  &-orange {
+    color: orange !important;
+  }
+  &-grey {
+    color: grey !important;
+  }
+  &-maroon {
+    color: maroon !important;
+  }
+  &-magenta {
+    color: magenta !important;
+  }
+  &-black {
+    color: black !important;
+  }
+  &-gold {
+    color: #e1b900 !important; //FFD700
+  }
+
+  &-glow-green {
+    text-shadow: #0f0 0 0 5px !important;
+  }
+  &-glow-pink {
+    text-shadow: #ff4081 0 0 5px !important;
+  }
+  &-glow-pink-new {
+    text-shadow: #f0f 0 0 5px !important;
+  }
+  &-glow-yellow {
+    text-shadow: #ffce5b 0 0 5px !important;
+  }
+  &-glow-yellow-new {
+    text-shadow: #fdff00 0 0 5px !important;
+  }
+  &-glow-orange {
+    text-shadow: #f60 0 0 5px !important;
+  }
+}
+
+.bg {
+  &-green {
+    background-color: $green !important;
+  }
+  &-lawngreen {
+    background-color: lawngreen !important;
+  }
+  &-lime {
+    background-color: lime !important;
+  }
+  &-pink {
+    background-color: pink !important;
+  }
+  &-light-pink {
+    background-color: lightpink !important;
+  }
+  &-light-red {
+    background-color: #fa8383 !important;
+  }
+  &-light-green {
+    background-color: #a4ffa4 !important;
+  }
+  &-light-yellow {
+    background-color: #ff9 !important;
+  }
+  &-light-blue {
+    background-color: lightblue !important;
+  }
+  &-light-grey {
+    background-color: lightgrey !important;
+  }
+}

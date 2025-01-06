@@ -1,0 +1,232 @@
+[data-kit-theme='default'],
+[data-kit-theme='dark'] {
+  .ant-table table {
+    border-collapse: collapse;
+  }
+
+  #table-trading {
+    line-height: normal !important;
+    font-size: 11px !important;
+    font-family: 'Tahoma', sans-serif !important;
+  }
+  #table-match {
+    line-height: normal !important;
+    font-size: 11px !important;
+    font-family: 'Tahoma', sans-serif !important;
+    table {
+      height: 1px;
+    }
+  }
+}
+
+tr.ant-table-row.ant-table-row-level-0.custom_row_hover:hover {
+  background-color: #ff7f2e !important;
+}
+
+tr.ant-table-row-selected.custom_row_hover:hover {
+  background-color: #ff7f2e !important;
+}
+
+tr.custom_row_hover > .ant-table-cell {
+  background-color: inherit !important;
+}
+
+tr:has(input[type='checkbox']:checked) {
+  background-color: #e8e0d6 !important;
+}
+
+//========================== MATCH VIRTUALIZE TABLE ========================================//
+
+div.ant-table-row.custom_row_hover:hover {
+  background-color: #ff7f2e !important;
+}
+
+div.ant-table-row.custom_row_hover:has(input[type='checkbox']:checked) {
+  background-color: #e8e0d6 !important;
+}
+
+div.ant-table-row.custom_row_hover:has(input[type='checkbox']:checked):hover {
+  background-color: #ff7f2e !important;
+}
+
+div.custom_row_hover > .ant-table-cell {
+  background-color: inherit !important;
+}
+
+div.ant-table-cell.cell_checkbox,
+div.ant-table-cell.cell_checkbox.live,
+div.ant-table-cell.cell_checkbox.delayed_live,
+div.ant-table-cell.cell_checkbox.has_live_today,
+div.ant-table-cell.cell_checkbox.today,
+div.ant-table-cell.cell_checkbox.has_live_early,
+div.ant-table-cell.cell_checkbox.early {
+  vertical-align: middle !important; /* Vertically center content */
+  text-align: center !important; /* Horizontally center content */
+  background-color: firebrick; /* Keeps your background color */
+  // padding: 8px !important;
+}
+
+div.ant-table-cell.live {
+  background-color: firebrick !important;
+}
+
+div.ant-table-cell.delayed_live {
+  background-color: firebrick !important;
+}
+
+div.ant-table-cell.has_live_today {
+  background-color: firebrick !important;
+}
+
+div.ant-table-cell.today {
+  background-color: yellow !important;
+}
+
+div.ant-table-cell.has_live_early {
+  background-color: steelblue !important;
+}
+
+div.ant-table-cell.early {
+  background-color: steelblue !important;
+}
+
+[data-kit-theme='default'] .ant-table tbody > tr:nth-of-type(even) {
+  background-color: #fff;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.custom_border_bottom {
+  td {
+    border-bottom: 3px solid #294071 !important;
+  }
+}
+
+.icon_counter_unassigned_games {
+  text-align: right;
+  color: WhiteSmoke;
+  background-color: SteelBlue;
+  padding: 0 2px;
+  min-width: 22px;
+  height: 17px;
+}
+.icon_live {
+  display: inline-block;
+  background: url('/resources/images/icon_tv.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_delayed_live {
+  display: inline-block;
+  background: url('/resources/images/icon_tv_delayed.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_has_live {
+  display: inline-block;
+  background: url('/resources/images/icon_ball.gif') !important;
+  width: 16px;
+  height: 16px;
+}
+.icon_trader {
+  display: inline-block;
+  background-color: #90ee90;
+  width: 16px;
+  height: 16px;
+}
+.bg_trader {
+  background-color: #90ee90;
+}
+
+.ant-table-tbody > tr > td:has(.ant-form-item) {
+  padding: 0 !important;
+}
+
+.live {
+  background-color: firebrick;
+  padding: 8px !important;
+}
+
+.delayed_live {
+  background-color: firebrick;
+  padding: 8px !important;
+}
+
+.has_live_today {
+  background-color: firebrick;
+  padding: 8px !important;
+}
+
+.today {
+  background-color: yellow;
+  padding: 8px !important;
+}
+
+.has_live_early {
+  background-color: steelblue;
+  padding: 8px !important;
+}
+
+.early {
+  background-color: steelblue;
+  padding: 8px !important;
+}
+
+.filter_early {
+  width: 100px;
+  background-color: #4682b4;
+  border: solid 1px #ccc;
+}
+
+.filter_all_matches {
+  width: 110px;
+  background-color: #222;
+  border: solid 1px #ccc;
+}
+
+.filter_live {
+  width: 100px;
+  background-color: #b22222;
+  border: solid 1px #ccc;
+}
+
+.filter_today {
+  width: 100px;
+  background-color: yellow;
+  border: solid 1px #ccc;
+}
+
+.submit-style {
+  width: 100%;
+  background-color: #fff9d7;
+  padding: 8px;
+}
+
+.header-style {
+  border-width: 1px;
+  border-color: #ccc;
+  background-color: #f2f2f2;
+  padding: 8px;
+  height: 52px;
+}
+
+.btn-link {
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: transparent;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  touch-action: manipulation;
+  line-height: 1.6;
+  height: 21px;
+  &:hover {
+    border-color: inherit;
+    padding: 0 3px !important;
+  }
+}

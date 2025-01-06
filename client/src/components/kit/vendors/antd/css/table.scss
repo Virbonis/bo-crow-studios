@@ -1,0 +1,38 @@
+// Import mixins
+@import 'components/mixins.scss';
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// DARK THEME STYLES
+// pindah ke token theme
+// [data-kit-theme='dark'] {
+//   .ant-table-column-has-sorters {
+//     &:hover {
+//       background: $dark-gray-5 !important;
+//     }
+//   }
+//   .ant-table thead > tr > th {
+//     background-color: $dark-gray-4 !important;
+//     // border-bottom: 1px solid #3a3a3a;
+//   }
+//   .ant-table tbody > tr.ant-table-row:hover > td {
+//     background: darken($dark-gray-4, 4%);
+//   }
+// }
+
+// set 2nd row background color
+[data-kit-theme='default'] {
+  .ant-table tbody > tr:nth-of-type(even) {
+    background-color: #f7f7f7;
+  }
+  .ant-table tbody > tr.table-primary > td {
+    background-color: #e6f4ff;
+  }
+}
+[data-kit-theme='dark'] {
+  .ant-table tbody > tr:nth-of-type(even) {
+    background-color: #2b2a39;
+  }
+  .ant-table tbody > tr.table-primary > td {
+    background-color: #000040;
+  }
+}

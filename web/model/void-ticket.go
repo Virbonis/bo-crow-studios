@@ -1,0 +1,59 @@
+package model
+
+import "github.com/guregu/null"
+
+type VoidTicketList struct {
+	UserName                    string      `json:"username" db:"UserName"`
+	Bet_ID                      int         `json:"bet_id" db:"Bet_ID"`
+	Pending_Bet_ID              int         `json:"pending_bet_id" db:"Pending_Bet_ID"`
+	Bet_Date                    string      `json:"bet_date" db:"Bet_Date"`
+	Accept_Pending_Date         string      `json:"accept_pending_date" db:"Accept_Pending_Date"`
+	GameType                    int         `json:"game_type" db:"GameType"`
+	Bet_Live_Status             string      `json:"bet_live_status" db:"Bet_Live_Status"`
+	Match_ID                    null.Int    `json:"match_id" db:"Match_ID"`
+	Home_Name                   string      `json:"home_name" db:"Home_Name"`
+	Away_Name                   string      `json:"away_name" db:"Away_Name"`
+	Bet_Choice                  string      `json:"bet_choice" db:"Bet_Choice"`
+	Odds                        float64     `json:"odds" db:"Odds"`
+	OddsType                    int         `json:"odds_type" db:"OddsType"`
+	Handicap                    float64     `json:"handicap" db:"Handicap"`
+	Bet_Fav_Status              int         `json:"bet_fav_status" db:"Bet_Fav_Status"`
+	Bet_Neutral_Status          string      `json:"bet_neutral_status" db:"Bet_Neutral_Status"`
+	Bet_Score_Home              int         `json:"bet_score_home" db:"Bet_Score_Home"`
+	Bet_Score_Away              int         `json:"bet_score_away" db:"Bet_Score_Away"`
+	Currency                    string      `json:"currency" db:"Currency"`
+	Bet_Amount                  float64     `json:"bet_amount" db:"Bet_Amount"`
+	Bet_Amount_RMB              float64     `json:"bet_amount_rmb" db:"Bet_Amount_RMB"`
+	WinLoss_Amount              float64     `json:"winloss_amount" db:"WinLoss_Amount"`
+	WinLoss_Amount_RMB          float64     `json:"winloss_amount_rmb" db:"WinLoss_Amount_RMB"`
+	WinLoss_Status              string      `json:"winloss_status" db:"WinLoss_Status"`
+	Void_User                   string      `json:"void_user" db:"Void_User"`
+	Void_Desc                   string      `json:"void_desc" db:"Void_Desc"`
+	IP                          string      `json:"ip" db:"IP"`
+	Bet_Type                    string      `json:"bet_type" db:"Bet_Type"`
+	Folds                       int         `json:"folds" db:"Folds"`
+	Tickets                     int         `json:"tickets" db:"Tickets"`
+	Parlay_Match_Void_User      string      `json:"parlay_match_void_user" db:"Parlay_Match_Void_User"`
+	Parlay_Match_Void_ID        string      `json:"parlay_match_void_id" db:"Parlay_Match_Void_ID"`
+	Parlay_Match_Void_Desc      string      `json:"parlay_match_void_desc" db:"Parlay_Match_Void_Desc"`
+	Parlay_Match_WinLoss_Status string      `json:"parlay_match_winloss_status" db:"Parlay_Match_WinLoss_Status"`
+	Parlay_GameType             int         `json:"parlay_game_type" db:"Parlay_GameType"`
+	League_Name                 string      `json:"league_name" db:"League_Name"`
+	Bet_Commision               int         `json:"bet_commision" db:"Bet_Commision"`
+	HT_Score_Status             string      `json:"ht_score_status" db:"HT_Score_Status"`
+	FT_Score_Status             string      `json:"ft_score_status" db:"FT_Score_Status"`
+	HT_Home                     int         `json:"ht_home" db:"HT_Home"`
+	HT_Away                     int         `json:"ht_away" db:"HT_Away"`
+	FS_Home                     int         `json:"fs_home" db:"FS_Home"`
+	FS_Away                     int         `json:"fs_away" db:"FS_Away"`
+	Sport_Name                  string      `json:"sport_name" db:"Sport_Name"`
+	Bet_Loss                    float64     `json:"bet_loss" db:"Bet_Loss"`
+	JWL                         float64     `json:"jwl" db:"JWL"`
+	Void_ID                     int         `json:"void_id" db:"Void_ID"`
+	VIPCode                     string      `json:"vip_code" db:"VIPCode"`
+	Is_Rejected_Bet             string      `json:"is_rejected_bet" db:"Is_Rejected_Bet"`
+	Is_Posted_Bet               string      `json:"is_posted_bet" db:"Is_Posted_Bet"`
+	Is_Processed_Bet            string      `json:"is_processed_bet" db:"Is_Processed_Bet"`
+	StatusTicket                int         `json:"status_ticket" db:"StatusTicket"`
+	MatchDate                   null.String `json:"match_date" db:"MatchDate"`
+}

@@ -1,0 +1,82 @@
+.ant-table-thead {
+  th {
+    text-align: center !important;
+  }
+}
+
+[data-kit-theme='default'],
+[data-kit-theme='dark'] {
+  // status acrj
+  .speedy {
+    background-color: #fbf8f3 !important;
+  }
+  .pending_hdp {
+    // bg-light-yellow
+    background-color: #ff9 !important;
+  }
+  .pending_ou {
+    // bg-light-blue
+    background-color: lightblue !important;
+  }
+  .pending_1x2 {
+    // bg-light-green
+    background-color: lightgreen !important;
+  }
+  .pending_long {
+    // bg-light-red
+    background-color: #fa8383 !important;
+  }
+  .reject {
+    // bg-light-grey
+    background-color: lightgrey !important;
+  }
+  .robot {
+    background-color: #ffc49b !important;
+  }
+}
+
+// { name: 'VIP 27', style: 'text_tosca text_glow_yellow_new bold' },
+// { name: 'VIP 28', style: 'text_tosca text_glow_pink_new bold' },
+// { name: 'VIP 23', style: 'text_blue bold' },
+// { name: 'VIP 18', style: 'text_dark_brown text_glow_orange bold' },
+// { name: 'VIP 15', style: 'text_glow_pink bold' },
+// { name: 'VIP 8', style: 'text_green bold' },
+// { name: 'VIP 11', style: 'text_violet_light bold' },
+// { name: 'VIP 9', style: 'text_violet bold' },
+// { name: 'VIP 17', style: 'text_violet text_glow_green bold' },
+// { name: 'VIP 14', style: 'text_black bold' },
+// { name: 'VIP 12', style: 'text_purple bold' },
+// { name: 'VIP 1, 3', style: 'text_red bold' },
+// { name: 'VIP 16', style: 'text_red text_glow_green bold' },
+// { name: 'VIP 5', style: 'text_coklat bold' },
+// { name: 'VIP 6', style: 'text_orange bold' },
+// { name: 'VIP 7 & VIP 26', style: 'text_grey text_glow_yellow bold' },
+// { name: 'VIP 7', style: 'text_grey bold' },
+// { name: 'VIP 26', style: 'text_glow_yellow bold' },
+// { name: 'VIP 10', style: 'text_black bold' },
+// { name: 'VIP 21', style: 'text_blue bold' },
+// { name: 'VIP 23 & 24', style: 'text_blue text_glow_green bold' },
+// { name: 'VIP 25', style: 'text_dark_purple text_glow_pink bold' },
+// { name: 'VIP 4', style: 'text_black bold' },
+// { name: 'VIP 24', style: 'text_glow_green bold' },
+// { name: 'VIP 13, 2', style: 'text_black bold' },
+
+// .text_tosca {color: #00a99d;}
+// .text_glow_yellow_new {color: #f9d71c;}
+// .text_glow_pink_new {color: #ff00ff;}
+// .text_blue {color: #00a99d;}
+// .text_dark_brown {color: #4d4d4d;}
+// .text_glow_orange {color: #ff6600;}
+// .text_glow_pink {color: #ff00ff;}
+// .text_green {color: #00a99d;}
+// .text_violet_light {color: #00a99d;}
+// .text_violet {color: #00a99d;}
+// .text_glow_green {color: #00a99d;}
+// .text_black {color: #4d4d4d;}
+// .text_purple {color: #00a99d;}
+// .text_red {color: #ff0000;}
+// .text_coklat {color: #4d4d4d;}
+// .text_orange {color: #ff6600;}
+// .text_grey {color: #4d4d4d;}
+// .text_glow_yellow {color: #f9d71c;}
+// .text_dark_purple {color: #00a99d;}

@@ -1,0 +1,336 @@
+@import 'css/layout.scss';
+@import 'css/utils.scss';
+@import 'css/router.scss';
+@import 'css/colors.scss';
+@import '../custom/vip.scss';
+
+[data-kit-theme='default'],
+[data-kit-theme='dark'] {
+  // ant-menu, adjust icon
+  .ant-menu-vertical > .ant-menu-item,
+  .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
+  .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+  .ant-menu-sub.ant-menu-inline > .ant-menu-item,
+  .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    span.fe {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // ant.table, adjust td
+  .ant-table-thead > tr:not(.ant-table-measure-row) > th {
+    vertical-align: middle;
+    height: 30px;
+    padding: 2px 4px !important;
+  }
+
+  .ant-table-tbody > tr:not(.ant-table-measure-row) > td {
+    vertical-align: middle;
+    padding: 2px 4px !important;
+
+    .ant-btn {
+      height: unset;
+    }
+  }
+
+  // fix ant font
+  .ant-badge,
+  span.ant-typography {
+    font-family: unset;
+    font-size: unset;
+    color: unset;
+  }
+
+  // compact
+  .ant-table-wrapper .ant-table,
+  .ant-btn,
+  span.ant-typography {
+    line-height: normal;
+  }
+
+  // ant-tabs fix margin
+  .ant-tabs-nav .ant-tabs-tab {
+    margin-right: unset !important;
+  }
+
+  // ant-tabs full height content
+  main .ant-tabs-tabpane.ant-tabs-tabpane-active {
+    overflow: hidden auto;
+    height: 100vh;
+    max-height: calc(100vh - 126px);
+  }
+
+  .ant-tabs-tabpane > .card:has(.ant-table-fixed-header) {
+    height: 100%;
+
+    .card-body > .ant-form:has(.ant-table-wrapper) {
+      height: 100%;
+    }
+  }
+
+  .ant-table-wrapper:has(.ant-table-fixed-header, #table-mo):only-child,
+  .ant-table-wrapper:has(.ant-table-fixed-header, #table-mo)>.ant-spin-nested-loading,
+  .ant-table-wrapper:has(.ant-table-fixed-header, #table-mo)>.ant-spin-nested-loading>.ant-spin-container,
+  // prettier-ignore
+  .ant-table-wrapper:has(.ant-table-fixed-header, #table-mo)>.ant-spin-nested-loading>.ant-spin-container>.ant-table,
+  // prettier-ignore
+  .ant-table#table-mo,
+  .ant-table#table-mo>.ant-table-container,
+  .ant-table#table-mo>.ant-table-container>.ant-table-content {
+    height: 100%;
+  }
+
+  .ant-table-wrapper:has(.ant-table-fixed-header):not(:only-child) {
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  // ant tbody full height scroll
+  .ant-spin-container:has(.ant-table-fixed-header) {
+    display: flex;
+    flex-direction: column;
+
+    &:has(.ant-table-pagination) > .ant-table.ant-table-fixed-header {
+      max-height: calc(100% - 37px);
+    }
+
+    &:not(:has(.ant-table-pagination)) > .ant-table.ant-table-fixed-header {
+      max-height: 100%;
+    }
+  }
+
+  .ant-table.ant-table-fixed-header {
+    display: flex;
+    flex-direction: column;
+
+    > .ant-table-container:only-child {
+      height: 100%;
+    }
+
+    > .ant-table-container:not(:only-child) {
+      flex: 1 1 auto;
+      overflow: auto;
+    }
+
+    > .ant-table-container {
+      display: flex;
+      flex-direction: column;
+
+      > .ant-table-body {
+        flex: 1;
+        max-height: 100%;
+        overflow-y: auto !important;
+      }
+    }
+
+    &.ant-table-has-fix-right,
+    &.ant-table-scroll-horizontal.ant-table-empty {
+      .ant-table-body {
+        overflow-y: scroll !important;
+      }
+    }
+  }
+
+  // fix ant table bordered
+  .ant-table.ant-table-bordered > .ant-table-container {
+    border: 1px solid #d9d9d9;
+  }
+
+  // // ant-table
+  // .ant-table,
+  // .ant-table.ant-table-small {
+  //   .ant-table-tbody > tr:nth-of-type(even) {
+  //     // background-color: rgba(0, 0, 0, 0.03);
+  //   }
+  //   .ant-table-tbody > tr.tr-odd {
+  //     // background-color: rgba(0, 0, 0, 0) !important;
+  //   }
+  //   .ant-table-tbody > tr.tr-even {
+  //     // background-color: rgba(0, 0, 0, 0.03) !important;
+  //   }
+  //   .ant-table-tbody > tr > td {
+  //     vertical-align: top;
+  //     padding: 2px 4px;
+  //   }
+  //   .ant-table-tbody .ant-table-wrapper:only-child .ant-table {
+  //     margin: -2px -2px -2px 40px;
+  //   }
+  // }
+
+  // ant-form fix margin
+  .ant-form-item {
+    margin: 0;
+
+    label {
+      margin: 0;
+    }
+  }
+
+  // .ant-form-item-control-input {
+  //   min-height: auto;
+  // }
+
+  // // ant-btn
+  // .ant-btn {
+  //   height: 22px;
+  //   padding: 0 7px;
+  //   font-size: 12px;
+  //   border-radius: 2px;
+  // }
+
+  // // ant-input
+  // .ant-input,
+  // .ant-input-affix-wrapper {
+  //   padding: 0 7px;
+  // }
+  // .ant-input-number {
+  //   padding: 0;
+  //   input {
+  //     height: 22px;
+  //     padding: 0 7px;
+  //   }
+  // }
+
+  // // ant-select
+  // .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  //   padding: 0 7px;
+  //   height: 22px;
+  // }
+  // // .ant-select-multiple .ant-select-selector::after {
+  // //   line-height: 16px;
+  // // }
+  // .ant-select-single:not(.ant-select-customize-input) .ant-select-selector::after,
+  // .ant-select-single:not(.ant-select-customize-input)
+  //   .ant-select-selector
+  //   .ant-select-selection-item,
+  // .ant-select-single:not(.ant-select-customize-input)
+  //   .ant-select-selector
+  //   .ant-select-selection-placeholder {
+  //   line-height: 22px;
+  // }
+  // .ant-select-single:not(.ant-select-customize-input):not(.ant-select-customize-input)
+  //   .ant-select-selection-search-input {
+  //   height: 22px;
+  // }
+  // .ant-select-single:not(.ant-select-customize-input) .ant-select-selection-search {
+  //   right: 7px;
+  //   left: 7px;
+  // }
+  // .ant-select-multiple .ant-select-selector::after {
+  //   line-height: 16px;
+  // }
+  // .ant-select-multiple .ant-select-selection-item {
+  //   height: 16px;
+  //   line-height: 14px;
+  // }
+
+  // // ant-datepicker
+  // .ant-picker {
+  //   padding: 0 7px 0;
+  // }
+  // antd item ↑
+
+  .bg-void-ticket {
+    .ant-space {
+      display: flex;
+    }
+
+    .ant-badge,
+    .ant-typography-ellipsis {
+      display: block;
+    }
+
+    background-color: #dcdcdc !important;
+    text-decoration: line-through;
+  }
+
+  .bg-ca1 {
+    background-color: #d1d1e9 !important;
+  }
+
+  .ant-table-wrapper:has(.ant-table-fixed-header):has(#table-forecast),
+  .ant-table-wrapper:has(.ant-table-fixed-header):has(#table-trading),
+  .ant-table-wrapper:has(.ant-table-fixed-header):has(#table-mo),
+  .ant-table-wrapper:has(#table-mo) {
+    height: 100%;
+    overflow: auto;
+  }
+
+  #table-bet-listing,
+  #table-mix-parlay,
+  #table-forecast,
+  #table-mo,
+  #table-trading {
+    line-height: normal;
+    font-size: 11px;
+    font-family: 'Tahoma', sans-serif;
+
+    span,
+    button,
+    input {
+      line-height: normal;
+      font-size: 11px;
+      font-family: 'Tahoma', sans-serif;
+    }
+
+    tr > th {
+      color: #fff;
+      background: var(--kit-color-primary);
+      padding: 0 !important;
+      text-align: center;
+    }
+
+    tr.custom_row_hover:hover {
+      background-color: #ff7f2e !important;
+    }
+  }
+
+  #table-bet-listing {
+    .ant-table-body {
+      min-height: 200px;
+      max-height: 200px;
+    }
+
+    .ant-table-placeholder {
+      height: 200px;
+    }
+  }
+
+  #table-bet-forecast {
+    .ant-table-body {
+      min-height: 75px;
+      max-height: 75px;
+
+      .ant-empty {
+        margin: 1px;
+      }
+    }
+  }
+
+  .ant-btn-sm.ant-btn-icon-only {
+    &:has(.anticon-reload) {
+      width: 36px;
+      height: 36px;
+    }
+
+    .anticon {
+      font-size: 16px !important;
+    }
+  }
+
+  // reverse confirm button ok/cancel
+  .ant-modal-confirm-btns,
+  .ant-popconfirm-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+[data-kit-theme='default'] .card-header {
+  background: #f7f7f7;
+}
+
+[data-kit-theme='dark'] .card-header {
+  background-color: #2b2a39;
+}

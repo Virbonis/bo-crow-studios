@@ -1,0 +1,98 @@
+name: Build and Deploy to Testing environment
+
+on:
+  push:
+    branches:
+      - master
+  release:
+    types: [created]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GKE_ZONE: asia-southeast1-a
+  GKE_CLUSTER: dev-cluster
+  IMAGE: tsubasa-admin
+  REGISTRY_HOSTNAME: gcr.io
+  DEPLOYMENT_NAME: tsubasa-admin
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get Commit Message
+        run: |
+          echo "COMMIT_MSG=\"$(git log -1 --pretty=%b)\"" >> $GITHUB_ENV
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Setup gcloud CLI
+      - uses: google-github-actions/setup-gcloud@v0
+        with:
+          version: "318.0.0"
+          service_account_email: ${{ secrets.GKE_EMAIL }}
+          service_account_key: ${{ secrets.GKE_KEY }}
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      # Configure docker to use the gcloud command-line tool as a credential helper
+      - run: |
+          # Set up docker to authenticate
+          # via gcloud command-line tool.
+          gcloud auth configure-docker
+      # Build the Docker image
+      - name: Build
+        run: |
+          docker build -t "$REGISTRY_HOSTNAME"/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" \
+            --build-arg GITHUB_SHA="$GITHUB_SHA" \
+            --build-arg GITHUB_REF="$GITHUB_REF" .
+      # Push the Docker image to Google Container Registry
+      - name: Publish to TEST Env
+        run: |
+          docker push $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:$GITHUB_SHA
+      # Login and push the image to reg.s3dv.io for STG Env
+      - name: Publish to STG Env
+        run: |
+          echo "${{ secrets.S3DV_REG_TOKEN }}" | docker login reg.s3dv.io -u "${{ secrets.S3DV_REG_ID }}" --password-stdin
+          docker tag $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:$GITHUB_SHA reg.s3dv.io/sb2/$IMAGE:$GITHUB_SHA  
+          docker push reg.s3dv.io/sb2/$IMAGE:$GITHUB_SHA
+      # Set up kustomize
+      - name: Set up Kustomize
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/bin
+          curl -o $GITHUB_WORKSPACE/bin/kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+          chmod u+x $GITHUB_WORKSPACE/bin/kustomize
+      # Deploy the Docker image to the ARGOCD
+      - name: Checkout gitops repo
+        uses: actions/checkout@v2
+        with:
+          repository: "AxionHQ/tsubasa-config"
+          token: ${{ secrets.GITOPS_PAT }}
+          path: "app-deployment"
+
+      - name: Update Test ENV gitops repo
+        run: |
+          cd app-deployment/testing/tsubasa-admin
+          kustomize edit set image $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:${GITHUB_SHA}
+      - name: Update Staging ENV gitops repo
+        run: |
+          cd app-deployment/staging/tsubasa-admin
+          kustomize edit set image reg.s3dv.io/sb2/$IMAGE:${GITHUB_SHA}
+      - name: Commit gitops repo
+        run: |
+          cd app-deployment
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "$COMMIT_MSG"
+          git push

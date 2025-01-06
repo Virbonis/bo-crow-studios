@@ -1,0 +1,11 @@
+tr.selected_row:has(input[type='checkbox']:checked) {
+  background-color: #e6f7ff;
+}
+
+tr.selected_row > .ant-table-cell {
+  background-color: inherit !important;
+}
+
+tr.selected_row:hover {
+  background-color: #e6e6e6 !important;
+}

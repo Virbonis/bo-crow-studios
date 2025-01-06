@@ -1,0 +1,81 @@
+package model
+
+type ListOnlineList struct {
+	LeagueName string `json:"league_name" db:"League_Name"`
+	MatchID    int    `json:"match_id" db:"Match_ID"`
+	MatchDate  string `json:"match_date" db:"Match_Date"`
+	HomeName   string `json:"home_name" db:"Home_Name"`
+	AwayName   string `json:"away_name" db:"Away_Name"`
+}
+
+type OnlineListDetail struct {
+	LeagueSequence  int     `json:"league_sequence" db:"League_Sequence"`
+	LeagueName      string  `json:"league_name" db:"League_Name"`
+	HomeName        string  `json:"home_name" db:"Home_Name"`
+	AwayName        string  `json:"away_name" db:"Away_Name"`
+	MatchID         int     `json:"match_id" db:"Match_ID"`
+	MatchLiveStatus string  `json:"match_live_status" db:"Match_Live_Status"`
+	SubMatchSTFav   string  `json:"sub_match_st_fav" db:"Sub_Match_ST_Fav"`
+	GameType        int     `json:"game_type" db:"GameType"`
+	Handicap        float64 `json:"handicap" db:"Handicap"`
+	HomePosisi      int     `json:"home_posisi" db:"Home_Posisi"`
+	AwayPosisi      int     `json:"away_posisi" db:"Away_Posisi"`
+	HomeScore       int     `json:"home_score" db:"Home_Score"`
+	AwayScore       int     `json:"away_score" db:"Away_Score"`
+	MatchHome       int     `json:"match_home" db:"Match_Home"`
+	MatchAway       int     `json:"match_away" db:"Match_Away"`
+	THome           float64 `json:"t_home" db:"T_Home"`
+	TAway           float64 `json:"t_away" db:"T_Away"`
+	TDraw           float64 `json:"t_draw" db:"T_Draw"`
+	LiabHome        float64 `json:"liab_home" db:"Liab_Home"`
+	LiabAway        float64 `json:"liab_away" db:"Liab_Away"`
+	LiabDraw        float64 `json:"liab_draw" db:"Liab_Draw"`
+	Type            int     `json:"type" db:"Type"`
+	TotalType       string  `json:"total_type" db:"TotalType"`
+	EvRound         int     `json:"ev_round" db:"EvRound"`
+}
+
+type OnlineListBetList struct {
+	Username          string  `json:"username" db:"Username"`
+	OddsType          int     `json:"odds_type" db:"Odds_Status"`
+	BetID             int     `json:"bet_id" db:"Bet_ID"`
+	BetType           string  `json:"bet_type" db:"Bet_Type"`
+	PendingBetID      int     `json:"pending_bet_id" db:"Pending_Bet_ID"`
+	BetDate           string  `json:"bet_date" db:"Bet_Date"`
+	GameType          int     `json:"game_type" db:"GameType"`
+	BetLiveStatus     string  `json:"bet_live_status" db:"Bet_Live_Status"`
+	SportName         string  `json:"sport_name" db:"Sport_Name"`
+	LeagueName        string  `json:"league_name" db:"League_Name"`
+	HomeName          string  `json:"home_name" db:"Home_Name"`
+	AwayName          string  `json:"away_name" db:"Away_Name"`
+	BetChoice         string  `json:"bet_choice" db:"Bet_Choice"`
+	Odds              float64 `json:"odds" db:"Odds"`
+	Handicap          float64 `json:"handicap" db:"Handicap"`
+	BetFavStatus      int     `json:"bet_fav_status" db:"Bet_Fav_Status"`
+	BetNeutralStatus  string  `json:"bet_neutral_status" db:"Bet_Neutral_Status"`
+	BetCommision      int     `json:"bet_commision" db:"Bet_Commision"`
+	BetScoreHome      int     `json:"bet_score_home" db:"Bet_Score_Home"`
+	BetScoreAway      int     `json:"bet_score_away" db:"Bet_Score_Away"`
+	HTScoreStatus     string  `json:"ht_score_status" db:"HT_Score_Status"`
+	FTScoreStatus     string  `json:"ft_score_status" db:"FT_Score_Status"`
+	HTHome            int     `json:"ht_home" db:"HT_Home"`
+	HTAway            int     `json:"ht_away" db:"HT_Away"`
+	FSHome            int     `json:"fs_home" db:"FS_Home"`
+	FSAway            int     `json:"fs_away" db:"FS_Away"`
+	Currency          string  `json:"currency" db:"Currency"`
+	BetAmount         float64 `json:"bet_amount" db:"Bet_Amount"`
+	BetAmountRMB      float64 `json:"bet_amount_rmb" db:"Bet_Amount_RMB"`
+	WinLosssAmount    float64 `json:"win_loss_amount" db:"WinLoss_Amount"`
+	WinLosssAmountRMB float64 `json:"win_loss_amount_rmb" db:"WinLoss_Amount_RMB"`
+	WinLossStatus     string  `json:"win_loss_status" db:"WinLoss_Status"`
+	VoidID            string  `json:"void_id" db:"Void_ID"`
+	VoidUser          string  `json:"void_user" db:"Void_User"`
+	VoidDesc          string  `json:"void_desc" db:"Void_Desc"`
+	BetAmountComp     float64 `json:"bet_amount_comp" db:"Bet_Amount_Comp"`
+	IP                string  `json:"ip" db:"IP"`
+	IsRejectedBet     string  `json:"is_rejected_bet" db:"Is_Rejected_Bet"`
+	IsPostedBet       string  `json:"is_posted_bet" db:"Is_Posted_Bet"`
+	IsProcessedBet    string  `json:"is_processed_bet" db:"Is_Processed_Bet"`
+	Folds             int     `json:"folds" db:"Folds"`
+	Tickets           int     `json:"tickets" db:"Tickets"`
+}
