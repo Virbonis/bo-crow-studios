@@ -38,6 +38,7 @@ export function* LOGIN() {
   //     },
   //   })
   // }
+
   yield put({
     type: actions.SET_STATE,
     payload: {
@@ -50,7 +51,7 @@ export function* LOGIN() {
       authorized: true,
     },
   })
-  yield history.push('/homepage')
+  yield history.push('/')
   notification.success({
     message: 'Logged In',
     description: 'You have successfully logged in!',
@@ -106,6 +107,8 @@ export function* LOGIN() {
 // }
 
 export function* LOGOUT() {
+  const { tabs } = yield select(state => state.auth.settings)
+
   yield put({
     type: actions.SET_STATE,
     payload: {
@@ -118,9 +121,9 @@ export function* LOGOUT() {
       loading: false,
     },
   })
-  yield history.push('/auth/login')
   // remove tabs on logout
-  yield put({ type: 'auth/settings/SET_STATE', payload: { tabs: [] } })
+  const resetTabs = tabs.filter(e => e.key === '/homepage')
+  yield put({ type: 'auth/settings/SET_STATE', payload: { tabs: resetTabs } })
 }
 
 export function* UPDATE({ payload, successCallback, source }) {

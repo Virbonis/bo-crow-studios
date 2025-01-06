@@ -4,6 +4,7 @@ import { debounce } from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 import { useSelectorMenu } from '../../Menu/helper'
+import style from '../../Menu/MenuLeft/style.module.scss'
 
 const mapStateToProps = ({ auth: { menu } }) => ({
   menuData: menu.menuData,
@@ -31,7 +32,17 @@ const SearchMenu = ({ menuData = [] }) => {
   )
   const menuRef = React.useRef(null)
   const menuItems = React.useMemo(() => {
-    return menuData.filter(menuItem => menuItem.url).filter(x => x)
+    return menuData
+      .filter(e => e.url)
+      .map(e => ({
+        ...e,
+        key: e.menu_id,
+        label: (
+          <a>
+            <span className={style.title}>{e.title}</span>
+          </a>
+        ),
+      }))
   }, [menuData])
   const filteredMenuItems = React.useMemo(() => {
     if (searchValue.length === 0) return []
@@ -39,6 +50,7 @@ const SearchMenu = ({ menuData = [] }) => {
       menuItem.title.toLowerCase().includes(searchValue.toLowerCase()),
     )
   }, [menuItems, searchValue])
+
   const { onSelectMenu } = useSelectorMenu()
 
   const content =

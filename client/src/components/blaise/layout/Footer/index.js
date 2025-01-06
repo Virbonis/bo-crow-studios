@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className={style.footer}>
       <div className={style.footerInner}>
-        <p className="mb-0">Copyright © 2021 Opus Gaming</p>
+        <p className="mb-0">Copyright © Crow Studios</p>
       </div>
     </div>
   )

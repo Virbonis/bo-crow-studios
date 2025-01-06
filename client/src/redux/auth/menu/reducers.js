@@ -14,6 +14,18 @@ const initialState = {
       title: 'Test 1',
       url: '/test',
     },
+    {
+      menu_id: 3,
+      title: 'Test 2',
+      icon: 'fe fe-globe',
+      url: '',
+    },
+    {
+      menu_id: 4,
+      parent: 'Test 2',
+      title: 'Test 2',
+      url: '/test2',
+    },
   ],
 }
 

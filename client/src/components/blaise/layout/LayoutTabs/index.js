@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, Suspense } from 'react'
 import Homepage from 'pages/auth/homepage'
 import { connect } from 'react-redux'
 import { useHistory, withRouter } from 'react-router-dom'
+import { CloseOutlined } from '@ant-design/icons'
 import actions from 'redux/auth/setting/actions'
 // import ACL from 'components/blaise/system/ACL'
 import { routes } from 'router'
@@ -45,6 +46,8 @@ const LayoutTabs = ({
 
   const route404 = React.useMemo(() => routes.find(e => e.path === '/auth/404'), [])
 
+  console.log(tabs)
+
   useEffect(() => {
     if (tabs.length === 0 && pathname !== '/homepage')
       PushTab({
@@ -78,7 +81,7 @@ const LayoutTabs = ({
           PushTab({
             key: pathname,
             label: routeItem.title,
-            closeIcon: pathname !== '/homepage',
+            closeIcon: pathname !== '/homepage' && <CloseOutlined />,
             children: (
               <Suspense fallback={null}>
                 {/* <ACL bypass={routeItem?.bypass}> */}

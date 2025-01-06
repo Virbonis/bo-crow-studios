@@ -88,10 +88,7 @@ const Router = ({ history, routerAnimation }) => {
                           return (
                             <div className={routerAnimation}>
                               <Suspense fallback={null}>
-                                {/* <ACL
-                                  roles={menu.menuData?.find(x => x.url === path)?.role_ids} // eslint-disable-line camelcase
-                                  bypass={bypass}
-                                > */}
+                                {/* <ACL bypass={bypass}> */}
                                 <LayoutHelmet />
                                 <Component />
                                 {/* </ACL> */}

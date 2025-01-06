@@ -62,7 +62,7 @@ const AuthLayout = ({
           </div>
           <div className={style.containerInner}>{children}</div>
           <div className="mt-auto pb-5 pt-5">
-            <div className="text-center">Copyright © 2021 Opus Gaming</div>
+            <div className="text-center">Copyright © Crow Studios</div>
           </div>
         </div>
       </Layout.Content>
