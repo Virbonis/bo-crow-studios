@@ -1,5 +1,0 @@
-COMMAND LINE FOR TESTING
-========================================
-1. Testing Spesific File    : yarn test --collectCoverageFrom=src/[filePath]
-2. Testing Spesific Folder  : yarn test --watchAll --collectCoverageFrom=src/[folderPath]/*.js
-3. Testing All Files        : yarn test --watchAll
