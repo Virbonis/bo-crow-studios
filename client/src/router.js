@@ -44,14 +44,9 @@ export const routes = [
     exact: true,
     bypass: true,
   },
-  // Master
-  {
-    path: '/master/profile',
-    Component: lazy(() => import('pages/master/profile')),
-    exact: true,
-  },
   {
     path: '/test',
+    title: 'Dashboard',
     Component: lazy(() => import('pages/test/test1')),
     exact: true,
   },

@@ -1,44 +1,3 @@
-export const categoryName = {
-  0: 'Normal',
-  3: 'World Cup',
-  2: 'Olympic',
-  4: 'EURO',
-  5: 'COPA',
-  1: 'Special - Normal',
-  31: 'Special - World Cup',
-  21: 'Special - Olympic',
-  41: 'Special - EURO',
-  51: 'Special - COPA',
-}
-
-export const platform = {
-  BUY: 'Buyback',
-  GDS: 'Graphyte SB++',
-  GMB: 'Graphyte Mobile++',
-  CDS: 'China Desktop',
-  CMB: 'China Mobile',
-  EZY: 'Simple',
-  GCD: 'Graphyte Ch Desktop',
-  GCM: 'Graphyte Ch Mobile',
-
-  IPH: 'Mobile++',
-  MOBILEPLUS: 'Mobile++',
-  KIT: 'Mobile',
-  MOBILE: 'Mobile',
-  INT: 'Web',
-  WEB: 'Web',
-  WAP: 'SB++',
-}
-
-export const priceGroupName = {
-  '0': 'All',
-  '1': 'Major',
-  '2': 'Medium',
-  '3': 'Tournament',
-  '-99': 'Default',
-  '90': 'Minor',
-}
-
 export const listFEIcon = [
   { label: 'fe fe-activity', value: 'fe fe-activity' },
   { label: 'fe fe-airplay', value: 'fe fe-airplay' },
@@ -328,4 +287,4 @@ export const listFEIcon = [
   { label: 'fe fe-zoom-in', value: 'fe fe-zoom-in' },
   { label: 'fe fe-zoom-out', value: 'fe fe-zoom-out' },
 ]
-export default categoryName
+export default listFEIcon

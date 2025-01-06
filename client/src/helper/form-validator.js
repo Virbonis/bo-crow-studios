@@ -1,11 +1,3 @@
-import { isOddsValid } from 'helper'
-
-export const getValidatorOdds = game_type => (_, value) => {
-  const [isValid, errMsg] = isOddsValid(value, game_type)
-  if (!isValid) return Promise.reject(new Error(errMsg))
-  return Promise.resolve()
-}
-
 export const validatorSpecialChar = (_, value) => {
   const specialChar = /[~^|%!_']/
 
@@ -43,4 +35,4 @@ export const validatorTrim = (_, value) => {
   return Promise.resolve()
 }
 
-export default getValidatorOdds
+export default validatorSpecialChar
